@@ -22,35 +22,9 @@
  const equalTo = document.querySelector(".equalTo");
 
  const output = document.querySelector(".output");
- 
 
- function addVal(num1, num2){
-    console.log("in addVal function")
-    console.log(num1 + num2)
-    return parseInt(num1) + parseInt(num2);
- }
 
-  function subtractVal(num1, num2) {
-    return num1 - num2;
-  };
-
-  function multiplyVal(num1, num2) {
-
-    return num1 * num2;
-  
-  };
-
-  function divideVal(num1, num2){
-    return num1 / num2;
-  }
-
-  function displayOutput(value){
-    console.log("in displayOutput function")
-    console.log(value)
-    output.textContent = value;
-  }
-
-  zero.addEventListener("click", ()=>{
+ zero.addEventListener("click", ()=>{
 
     if(firstVal != null && operator != null){
         if(bool){
@@ -62,6 +36,95 @@
     if(output.textContent != "0"){
         output.textContent += "0";
     }
+  });
+  
+
+ one.addEventListener("click", ()=>{ displayValue("one") });
+ two.addEventListener("click", ()=>{ displayValue("two") });
+ three.addEventListener("click", ()=>{ displayValue("three") });
+ four.addEventListener("click", ()=>{ displayValue("four") });
+ five.addEventListener("click", ()=>{ displayValue("five") });
+ six.addEventListener("click", ()=>{ displayValue("six") });
+ seven.addEventListener("click", ()=>{ displayValue("seven") });
+ eight.addEventListener("click", ()=>{ displayValue("eight") });
+ nine.addEventListener("click", ()=>{ displayValue("nine") });
+
+
+
+ add.addEventListener("click", ()=>{
+    if(output.textContent != "Infinity"){
+        firstVal = output.textContent;
+    }
+    operator = "+";
+    bool = true;
+  });
+  
+  subtract.addEventListener("click", ()=>{
+    if(output.textContent != "Infinity"){
+        firstVal = output.textContent;
+    }
+    operator = "-";
+    bool = true;
+  });
+
+  multiply.addEventListener("click", ()=>{
+    if(output.textContent != "Infinity"){
+        firstVal = output.textContent;
+    }
+    operator = "*";
+    bool = true;
+  });
+
+  divide.addEventListener("click", ()=>{
+    if(output.textContent != "Infinity"){
+        firstVal = output.textContent;
+    }
+    operator = "/";
+    bool = true;
+  });
+
+  equalTo.addEventListener("click", ()=>{
+
+    secondVal = output.textContent;
+
+    let ans = null;
+
+    switch(operator){
+
+        case "+":
+            ans = addVal(firstVal, secondVal);
+            displayOutput(ans);
+            break;
+
+        case "-":
+            ans = subtractVal(firstVal, secondVal);
+            displayOutput(ans);
+            break;
+
+        case "*":
+            ans = multiplyVal(firstVal, secondVal);
+            displayOutput(ans);
+            break;
+
+        case "/":
+            ans = divideVal(firstVal, secondVal);
+            displayOutput(ans);
+            break;
+    }
+
+    if(ans == "Infinity"){
+
+        secondVal = null;
+
+    }else{
+
+        firstVal = ans;
+        secondVal = null;
+
+    }
+    
+    bool = true;
+
   });
 
   function displayValue(num){
@@ -156,76 +219,51 @@
         }
     }
 
-  }
+  } 
 
-  one.addEventListener("click", ()=>{ displayValue("one") });
-  two.addEventListener("click", ()=>{ displayValue("two") });
-  three.addEventListener("click", ()=>{ displayValue("three") });
-  four.addEventListener("click", ()=>{ displayValue("four") });
-  five.addEventListener("click", ()=>{ displayValue("five") });
-  six.addEventListener("click", ()=>{ displayValue("six") });
-  seven.addEventListener("click", ()=>{ displayValue("seven") });
-  eight.addEventListener("click", ()=>{ displayValue("eight") });
-  nine.addEventListener("click", ()=>{ displayValue("nine") });
+ 
 
+ function addVal(num1, num2){
+
+    return parseInt(num1) + parseInt(num2);
+
+ }
+
+  function subtractVal(num1, num2) {
+
+    return num1 - num2;
+
+  };
+
+  function multiplyVal(num1, num2) {
+
+    return num1 * num2;
   
+  };
 
+  function divideVal(num1, num2){
 
-  add.addEventListener("click", ()=>{
-    firstVal = output.textContent;
-    operator = "+";
-    bool = true;
-  });
-  
-  subtract.addEventListener("click", ()=>{
-    firstVal = output.textContent;
-    operator = "-";
-    bool = true;
-  });
+    if(num2 == 0){
 
-  multiply.addEventListener("click", ()=>{
-    firstVal = output.textContent;
-    operator = "*";
-    bool = true;
-  });
-
-  divide.addEventListener("click", ()=>{
-    firstVal = output.textContent;
-    operator = "/";
-    bool = true;
-  });
-
-  equalTo.addEventListener("click", ()=>{
-
-    secondVal = output.textContent;
-    let ans = null;
-
-    switch(operator){
-
-        case "+":
-            ans = addVal(firstVal, secondVal);
-            displayOutput(ans);
-            break;
-
-        case "-":
-            ans = subtractVal(firstVal, secondVal);
-            displayOutput(ans);
-            break;
-
-        case "*":
-            ans = multiplyVal(firstVal, secondVal);
-            displayOutput(ans);
-            break;
-
-        case "/":
-            ans = divideVal(firstVal, secondVal);
-            displayOutput(ans);
-            break;
     }
 
-    firstVal = ans;
-    secondVal = null;
+    return num1 / num2;
 
-    bool = true;
-  });
+  }
+
+  function displayOutput(value){
+
+    output.textContent = value;
+
+  }
+
+
+
+
+
+
+
+  
+
+
 
