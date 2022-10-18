@@ -19,6 +19,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: cyan;
+    font-family: sans-serif;
 }
 
 .outerBody {
@@ -34,6 +35,13 @@ body {
 
 .output {
     height: 110px;
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 8px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .options {
@@ -54,7 +62,7 @@ body {
     align-items: center;
     color: #ffffff;
     font-size: 24px;
-    font-weight: 900;
+    font-weight: 400;
     border-radius: 5px;
 }
 
@@ -68,8 +76,10 @@ body {
 
 .darker:hover {
     background-color: #3c3c3c;
+    cursor: pointer;
 }
 
 .lighter:hover {
     background-color: #323232;
+    cursor: pointer;
 }
